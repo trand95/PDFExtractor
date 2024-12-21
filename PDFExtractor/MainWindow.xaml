@@ -1,0 +1,40 @@
+﻿<Window x:Class="PDFExtractor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PDF Extractor" Height="450" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+       
+        <Button Content="PDFs auswählen" Grid.Row="0" Grid.Column="0" Width="120" Margin="10" Click="SelectPdfButton_Click"/>
+        <TextBox x:Name="PdfPathTextBox" Grid.Row="0" Grid.Column="1" Width="250" Margin="10,0" IsReadOnly="True"/>
+
+       
+        <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="10">
+            <ListBox x:Name="SelectedPdfListBox" Height="100" Margin="0"/>
+        </ScrollViewer>
+
+
+        <Button Content="Informationen extrahieren" Grid.Row="2" Grid.Column="0" Width="200" Margin="10" Click="ExtractButton_Click"/>
+        <Button x:Name="ExportButton" Content="Exportieren" Grid.Row="2" Grid.Column="1" Width="200" Margin="10" Click="ExportButton_Click" IsEnabled="False"/>
+        <TextBlock Text="Ergebnisse:" Grid.Row="4" Grid.Column="0" FontWeight="Bold" Margin="10"/>
+
+        <ScrollViewer Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="10">
+            <ListBox x:Name="ResultsListBox" Margin="0" Height="180"/>
+        </ScrollViewer>
+
+        <Button Content="Kopieren" Grid.Row="4" Grid.Column="1" Width="200" Margin="10" Click="CopyToClipboardButton_Click" IsEnabled="True"/>
+    </Grid>
+</Window>
